@@ -41,7 +41,7 @@ We then agreed upon and used one Id for each entity in the form of...
 * Users: <auth>\<username> e.g. campus\ntestid, or, cas\nmedicshooltestid
 * Locations: This uses our timetable system's "host key" for a location which is basically a primary key, e.g. ARMB.1.01
 * Activities to capture: Again, we used our timetable system's "host key" for an activity, e.g. #SPLUS-1269467316439437
-* Pedagogic grouping: Theoretically we used our SAP (ultimately our [SIS](http://en.wikipedia.org/wiki/Student_information_system]) ) system, in practice this data is fed from blackboard (but blackboard is fed from the SIS), our blackboard instance also has an academic year identifier appended e.g. Q1213-COM1001
+* Pedagogic grouping: Theoretically we used our SAP (ultimately our [SIS](http://en.wikipedia.org/wiki/Student_information_system)) system, in practice this data is fed from blackboard (but blackboard is fed from the SIS), our blackboard instance also has an academic year identifier appended e.g. Q1213-COM1001
 
 Once you have this and added them as external id's in the panopto system, any one system can refer to the same entity in another system using the external Id, so for example, panopto's folder Q1213-COM1001 is the same as blackboard's Q1213-COM1001 course and the same as the timetable's COM1001 module (the timetable is updated every year so prefix's are not needed).
 
