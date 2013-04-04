@@ -53,7 +53,7 @@ Several things are required...
 * Shib protected PHP server
 * Scientia Timetabling system with reporting engine, OR, you will need to write an interconnect to your own timetabling system to pass the activities as XML
 * Panopto system
-* Panopto-PHP-Client
+* [Panopto-PHP-Client](https://github.com/andmar8/Panopto-PHP-Client)
 
 Then...
 
