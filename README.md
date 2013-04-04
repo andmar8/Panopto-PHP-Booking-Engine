@@ -66,4 +66,12 @@ It's highly likely for your institution you're going to have to review the acade
 Step through of what the code does
 ==================================
 
-W.I.P.
+* After logging in and browsing to the index page, you are presented with a list of modules (a.k.a courses) that you our enrolled on in the timetabling system
+* Once you select a module you are then presented with a list of activities that are in "ReCAP enabled" locations, i.e. activities in the timetable system that are linked to a location with a Panopto remote recorder in it.
+* You can then select a set (or all) activities to be scheduled in their entirety, for example, an activity encompassing the whole academic year would create a schedule that would ask the Panopto system to create recordings for all academic weeks.
+* The index page will then display all activities again, except this time it will colour booked activities differently to denote their booked status. The way this works is with external Id's (yes, them again!) when the index page loads it asks for all activities for the selected module, each activity has a timetable "hostkey", this is what is set as Panopto's schedules/recordings external id; so it is then a relatively simple task to ask Panopto if there are any schedules/recordings that currently exist with that external id, if there are, then the activity with that external id is marked as "booked/scheduled"
+* Clicking into the "bookings" page present you with all recordings scheduled from the activities you selected and booked in the index page
+* Retrieving relevant bookings is a simple matter of getting what the currently selected module on the index page is, querying Panopto to ask for all sessions inside the folder named after that module and displaying them.
+* You can delete recordings as each checkbox is marked with each individual panopto session Id, selecting the ones you want to delete and pressing delete then calls the Panopto deleteSession() in the API.
+
+And that's about it!
