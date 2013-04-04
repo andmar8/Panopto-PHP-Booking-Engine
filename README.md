@@ -8,7 +8,7 @@ This code was originally backed by a Lectopia system but was re-written for Pano
 There are a couple of known "nuances/deficiencies" to the code which will be addresses in later releases but our overall goal was to mirror our existing functionality that was backed by Lectopia.
 
 Known nuances/deficiencies
-==========================
+--------------------------
 
 This list is not exhaustive
 
@@ -16,7 +16,7 @@ This list is not exhaustive
 * The bookings page shows all recordings scheduled from now onwards, once recorded they will no longer appear.
 
 What are external Id's?
-=======================
+-----------------------
 
 Throughout this code and the client code we have made extensive use of "external Id's", these are Id's that link Panopto's awareness of a given entity to an external system's. This was a piece of functionality we insisted Panopto add as it is vital in a web service style solution to decouple how you refer to an entity.
 
@@ -45,8 +45,20 @@ We then agreed upon and used one Id for each entity in the form of...
 
 Once you have this and added them as external id's in the panopto system, any one system can refer to the same entity in another system using the external Id, so for example, panopto's folder Q1213-COM1001 is the same as blackboard's Q1213-COM1001 course and the same as the timetable's COM1001 module (the timetable is updated every year so prefix's are not needed).
 
+How does the code work out the recorder settings?
+-------------------------------------------------
+
+After our remote recorders have been registered in Panopto we assign an external Id using the [External Id tool](https://github.com/andmar8/Panopto-Java-ExternalIdTool), in our set up we generally have two remote recorders per venue; we use the location hostkey for the location from the timetabling system as our external Id for *both* remote recorders. Each remote recorder is named with a post-fix of either -P or -S to denote primary or secondary recorder.
+
+So, for example, if we were to lecture capture enable a new location with the hostkey "EXAMPLE.R101"....
+
+* We would install two new remote recorders in the location and name them whatever + post-fix, e.g. "RR452-P" and "RR453-S"
+* We would then use the external id tool and add the hostkey "EXAMPLE.R101" as the external id to *both* remote recorders, this allows the code to retrieve all remote recorders for a given location.
+* We then work out which is the primary and which is the secondary recorder by the post-fix of its name
+* We then set the default primary and secondary recorder settings for those two recorders
+
 How to use the code
-===================
+-------------------
 
 Several things are required...
 
@@ -64,7 +76,7 @@ Then...
 It's highly likely for your institution you're going to have to review the academic year prefixing and the client for the timetabling system, but most of the heavy lifting is done for you by this code. You can review what format the expected incoming XML takes by looking at the objects in /includes/clients/scientia/entities/LocationActivitySchedule and /includes/clients/scientia/entities/module, one object is the xml, the other is encapsulating an array of that object (e.g. module->modules)
 
 Step through of what the code does
-==================================
+----------------------------------
 
 * After logging in and browsing to the index page, you are presented with a list of modules (a.k.a courses) that you our enrolled on in the timetabling system
 * Once you select a module you are then presented with a list of activities that are in "ReCAP enabled" locations, i.e. activities in the timetable system that are linked to a location with a Panopto remote recorder in it.
