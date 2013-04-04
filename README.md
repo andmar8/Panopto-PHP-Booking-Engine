@@ -57,8 +57,8 @@ Several things are required...
 
 Then...
 
-#Place this and the client code in the same directory on your PHP server
-#Point the timetabling client at your timetable's XML feed
-#Point the php client code at your Panopto instance, this can be specified in the Booking Engine code
+1. Place this and the client code in the same directory on your PHP server
+2. Point the timetabling client at your timetable's XML feed
+3. Point the php client code at your Panopto instance, this can be specified in the Booking Engine code
 
 It's highly likely for your institution you're going to have to review the academic year prefixing and the client for the timetabling system, but most of the heavy lifting is done for you by this code. You can review what format the expected incoming XML takes by looking at the objects in /includes/clients/scientia/entities/LocationActivitySchedule and /includes/clients/scientia/entities/module, one object is the xml, the other is encapsulating an array of that object (e.g. module->modules)
