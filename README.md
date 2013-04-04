@@ -29,7 +29,7 @@ Let me explain with an example, we have many systems that must act as one comple
 * In our Blackboard system we have courses, organisations (a.k.a. communities) and more users.
 * In our Panopto system we have folders, yet more users(!), remote recorders, sessions and recordings
 
-That's a whole heck of a lot of concepts/entities/things, but many are the same thing and "need" to be referred to as the same thing so different systems know, for example, that "AMARTINBLDG-ROOM101" in timetabling or blackboard or panopto or any other on campus system is lecture theatre in the esteemed "Andrew Martin Lecture Theatre", taking the above list and concetrating on the entities first not the systems it would look like this...
+That's a whole heck of a lot of concepts/entities/things, but many are the same thing and "need" to be referred to as the same thing so different systems know, for example, that "AMARTINBLDG-ROOM101" in timetabling, or blackboard, or panopto, or any other on campus system, is the lecture theatre in the esteemed "Andrew Martin Building", taking the above list and concentrating on the entities first not the systems it would look like this...
 
 * Users: Blackboard/Panopto/Timetabling
 * Locations: Panopto (Where the Remote Recorder is, denoted by naming)/Timetabling
